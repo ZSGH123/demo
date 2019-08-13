@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
  * date 2019-08-11 20:37
  ***/
 @Component
-@ConfigurationProperties("define")
-@PropertySource("classpath:test.properties")
+@ConfigurationProperties(prefix = "define", ignoreUnknownFields = true, ignoreInvalidFields = true)
+@PropertySource(value = {"classpath:test.properties"}, name = "test", ignoreResourceNotFound = false, encoding = "utf-8")
 public class TestEntity {
 
     private String name;
